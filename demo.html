@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Uatu.js - Demo</title>
+  <script type="text/javascript" src="uatu.js"></script>
+  <script type="text/javascript">
+    Uatu.on('start-demo', function(message, container) {
+      container.innerHTML += message + "<br/>";
+    });
+
+    window.onload = function () {
+
+      var link = document.getElementById('start-demo');
+
+      link.onclick = function (e) {
+        e.preventDefault();
+
+        Uatu.fire('start-demo', window, 'Hello World!', document.getElementById('message'));
+      };
+
+    };
+  </script>
+</head>
+<body>
+  <a href="#" id="start-demo">Start demo</a>
+  <p id="message"></p>
+</body>
+</html>
